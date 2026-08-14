@@ -38,6 +38,13 @@
 docker compose up --build
 ```
 
+### USEFUL RESOURCE LINKS
+
+<table>
+  <tbody><tr><td width="99999">OpenAPI URL</td><td><a href="http://localhost:8080/swagger-ui/index.html">🌐</a></td></tr></tbody>
+  <tbody><tr><td>PgAdmin Dashboard</td><td><a href="http://localhost:5050">🌐</a></td></tr></tbody>
+</table>
+
 ### UPDATE MAVEN WRAPPER
 
 ```sh
