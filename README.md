@@ -34,10 +34,9 @@
 
 <table>
   <tbody><tr><td width="99999">Spring Boot 4 REST API foundation</td><td>✅</td></tr></tbody>
-  <tbody><tr><td>PostgreSQL persistence with JPA/Hibernate</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>PostgreSQL Hibernate persistence</td><td>✅</td></tr></tbody>
   <tbody><tr><td>OpenAPI docs with Swagger UI</td><td>✅</td></tr></tbody>
-  <tbody><tr><td>Docker Compose with health checking</td><td>✅</td></tr></tbody>
-  <tbody><tr><td>PgAdmin dashboard for DB management</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>Docker Compose with health</td><td>✅</td></tr></tbody>
   <tbody><tr><td>Boilerplate reduction with Lombok</td><td>✅</td></tr></tbody>
 </table>
 
@@ -46,6 +45,7 @@
 ### LAUNCH THE CONTAINERS
 
 ```sh
+docker compose down
 docker compose up --build
 ```
 
@@ -53,7 +53,6 @@ docker compose up --build
 
 <table>
   <tbody><tr><td width="99999">OpenAPI URL</td><td><a href="http://localhost:8080/swagger-ui/index.html">🌐</a></td></tr></tbody>
-  <tbody><tr><td>PgAdmin Dashboard</td><td><a href="http://localhost:5050">🌐</a></td></tr></tbody>
 </table>
 
 ### UPDATE MAVEN WRAPPER
