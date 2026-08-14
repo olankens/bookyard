@@ -30,6 +30,17 @@
   <img src=".assets/preview-01.avif" align="center" width="49.21875%"><picture><img src=".assets/blank.gif" align="center" width="1.5625%"></picture><img src=".assets/preview-02.avif" align="center" width="49.21875%">
 </td></tr></tbody></table>
 
+## FEATURES
+
+<table>
+  <tbody><tr><td width="99999">Spring Boot 4 REST API foundation</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>PostgreSQL persistence with JPA/Hibernate</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>OpenAPI docs with Swagger UI</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>Docker Compose with health checking</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>PgAdmin dashboard for DB management</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>Boilerplate reduction with Lombok</td><td>✅</td></tr></tbody>
+</table>
+
 ## LEARNING
 
 ### LAUNCH THE CONTAINERS
