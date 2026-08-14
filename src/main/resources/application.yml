@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: bookyard
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
