@@ -1,0 +1,7 @@
+services:
+  bookyard-app:
+    build: .
+    container_name: bookyard-app
+    ports:
+      - "8080:8080"
+    restart: always

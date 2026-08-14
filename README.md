@@ -32,9 +32,15 @@
 
 ## LEARNING
 
+### LAUNCH THE CONTAINERS
+
+```sh
+docker compose up --build
+```
+
 ### UPDATE MAVEN WRAPPER
 
-```shell
+```sh
 address="https://maven.apache.org/download.cgi"
 pattern="Apache Maven [0-9]+\.[0-9]+\.[0-9]+"
 version="$(curl -s "$address" | grep -A2 'id="CurrentMaven"' | grep -oE "$pattern" | head -1 | awk '{print $3}')"
