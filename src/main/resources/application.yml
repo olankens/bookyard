@@ -1,6 +1,13 @@
 spring:
   application:
     name: bookyard
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/bookyard
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

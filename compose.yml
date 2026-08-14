@@ -1,7 +1,42 @@
 services:
-  bookyard-app:
+  app:
     build: .
     container_name: bookyard-app
     ports:
       - "8080:8080"
     restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:18
+    container_name: bookyard-postgres
+    environment:
+      POSTGRES_DB: bookyard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d bookyard" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: bookyard-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@bookyard.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
