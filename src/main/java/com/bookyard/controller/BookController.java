@@ -1,30 +1,43 @@
 package com.bookyard.controller;
 
 import com.bookyard.entity.Book;
-import com.bookyard.repository.BookRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.bookyard.service.BookService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
 
-    private final BookRepository bookRepository;
+    private final BookService bookService;
 
-    public BookController(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @PostMapping
+    public Book createBook(@RequestBody Book book) {
+        return bookService.createBook(book);
+    }
+
+    @GetMapping("/{id}")
+    public Book getBookById(@PathVariable Long id) {
+        return bookService.getBookById(id);
     }
 
     @GetMapping
-    public Page<Book> getAllBooks(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size
-    ) {
-        return bookRepository.findAll(PageRequest.of(page, size, Sort.by("title").ascending()));
+    public List<Book> getAllBooks() {
+        return bookService.getAllBooks();
+    }
+
+    @PutMapping("/{id}")
+    public Book updateBook(@PathVariable Long id, @RequestBody Book book) {
+        return bookService.updateBook(id, book);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable Long id) {
+        bookService.deleteBook(id);
     }
 }
