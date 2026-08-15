@@ -9,7 +9,7 @@
     <a href="https://ko-fi.com/olankens">FUNDING</a>
   </div></td></tr></tbody>
   <tbody><tr><td align="center" width="99999">&nbsp;<div>
-    ...
+    Spring boot project with basic rest endpoints for book catalog records, modern postgres persistence, layered services, clean openapi docs, and docker compose support for local startup with one command.
   </div>&nbsp;</td></tr></tbody>
   <tbody><tr><td align="center" width="99999">
     <a href="https://spring.io"><img src=".assets/spring.svg" align="center" width="56"></a>
@@ -48,12 +48,6 @@
 docker compose down
 docker compose up --build
 ```
-
-### USEFUL RESOURCE LINKS
-
-<table>
-  <tbody><tr><td width="99999">OpenAPI URL</td><td><a href="http://localhost:8080/swagger-ui/index.html">🌐</a></td></tr></tbody>
-</table>
 
 ### UPDATE MAVEN WRAPPER
 
