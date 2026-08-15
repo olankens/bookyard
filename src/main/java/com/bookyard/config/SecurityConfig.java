@@ -32,16 +32,16 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        var admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN").build();
-        var user = User.builder()
-                .username("user")
-                .password(passwordEncoder().encode("user"))
-                .roles("USER").build();
-        return new InMemoryUserDetailsManager(admin, user);
-    }
+    // @Bean
+    // public UserDetailsService userDetailsService() {
+    //     var admin = User.builder()
+    //             .username("admin")
+    //             .password(passwordEncoder().encode("admin"))
+    //             .roles("ADMIN").build();
+    //     var user = User.builder()
+    //             .username("user")
+    //             .password(passwordEncoder().encode("user"))
+    //             .roles("USER").build();
+    //     return new InMemoryUserDetailsManager(admin, user);
+    // }
 }
