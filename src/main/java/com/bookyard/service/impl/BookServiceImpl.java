@@ -36,7 +36,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getBookById(Long id) {
-        return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id " + id));
+        return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
     }
 
     @Override
@@ -46,7 +46,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book updateBook(Long id, Book book) {
-        var existing = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id " + id));
+        var existing = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
         existing.setTitle(book.getTitle());
         existing.setAuthor(book.getAuthor());
         return bookRepository.save(existing);
@@ -54,7 +54,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(Long id) {
-        if (!bookRepository.existsById(id)) throw new RuntimeException("Book not found with id " + id);
+        if (!bookRepository.existsById(id)) throw new RuntimeException("Book not found with id: " + id);
         bookRepository.deleteById(id);
     }
 }
