@@ -5,7 +5,7 @@ import com.bookyard.entity.Book;
 import java.util.List;
 
 public interface BookService {
-    Book createBook(Book book);
+    Book createBook(String title, String authorName);
 
     Book getBookById(Long id);
 

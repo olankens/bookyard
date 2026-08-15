@@ -1,23 +1,36 @@
 package com.bookyard.service.impl;
 
+import com.bookyard.entity.Author;
 import com.bookyard.entity.Book;
+import com.bookyard.repository.AuthorRepository;
 import com.bookyard.repository.BookRepository;
 import com.bookyard.service.BookService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class BookServiceImpl implements BookService {
 
+    private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
 
-    public BookServiceImpl(BookRepository bookRepository) {
+    public BookServiceImpl(AuthorRepository authorRepository, BookRepository bookRepository) {
+        this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
     }
 
     @Override
-    public Book createBook(Book book) {
+    public Book createBook(String title, String authorName) {
+        var author = new Author();
+        author.setName(authorName);
+        // if (true) throw new RuntimeException("Dummy failure before saving to test transactional");
+        authorRepository.save(author);
+        var book = new Book();
+        book.setTitle(title);
+        book.setAuthor(author);
         return bookRepository.save(book);
     }
 
