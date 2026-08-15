@@ -6,6 +6,7 @@ import com.bookyard.repository.AuthorRepository;
 import com.bookyard.repository.BookRepository;
 import com.bookyard.service.BookService;
 import jakarta.transaction.Transactional;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,6 +54,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(Long id) {
         if (!bookRepository.existsById(id)) throw new RuntimeException("Book not found with id: " + id);
         bookRepository.deleteById(id);
