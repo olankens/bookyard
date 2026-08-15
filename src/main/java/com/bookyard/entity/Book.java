@@ -11,6 +11,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    // private Double price;
     @ManyToOne
     @JsonBackReference
     private Author author;
