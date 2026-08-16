@@ -6,6 +6,8 @@ import com.bookyard.repository.AuthorRepository;
 import com.bookyard.repository.BookRepository;
 import com.bookyard.service.BookService;
 import jakarta.transaction.Transactional;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Cacheable(value = "books", key = "#id")
     public Book getBookById(Long id) {
         return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
     }
@@ -46,6 +49,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @CacheEvict(value = "books", key = "#id")
     public Book updateBook(Long id, Book book) {
         var existing = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
         existing.setTitle(book.getTitle());
@@ -54,6 +58,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @CacheEvict(value = "books", key = "#id")
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(Long id) {
         if (!bookRepository.existsById(id)) throw new RuntimeException("Book not found with id: " + id);

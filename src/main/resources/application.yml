@@ -12,7 +12,11 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  data:
+    redis:
+      host: redis
+      port: 6379
+
 jwt:
   secret: VIESj/LtxJ05wroQ1H+Z6iqc3FRVsTpxeR8SKu1rc4Y=
-  # expiration: 86400000
-  expiration: 180000
+  expiration: 86400000
