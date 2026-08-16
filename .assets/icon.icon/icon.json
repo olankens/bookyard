@@ -7,13 +7,13 @@
       "layers" : [
         {
           "glass" : false,
-          "image-name" : "ChatGPT Image Aug 15, 2026, 05_11_12 PM.png",
-          "name" : "ChatGPT Image Aug 15, 2026, 05_11_12 PM",
+          "image-name" : "msvfkb5flao7lm (1).jpeg",
+          "name" : "Image",
           "position" : {
-            "scale" : 1.6,
+            "scale" : 0.95,
             "translation-in-points" : [
-              80,
-              42
+              -30,
+              580
             ]
           }
         }
