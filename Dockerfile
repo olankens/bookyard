@@ -2,8 +2,10 @@
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY pom.xml .
+RUN --mount=type=cache,target=/root/.m2 mvn dependency:go-offline
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN --mount=type=cache,target=/root/.m2 mvn package -DskipTests
+
 
 # Stage #2: Run the JAR
 FROM eclipse-temurin:17-jre
