@@ -6,7 +6,6 @@ RUN --mount=type=cache,target=/root/.m2 mvn dependency:go-offline
 COPY src ./src
 RUN --mount=type=cache,target=/root/.m2 mvn package -DskipTests
 
-
 # Stage #2: Run the JAR
 FROM eclipse-temurin:17-jre
 WORKDIR /app
