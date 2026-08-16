@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .logout(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/public/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/public/**", "/swagger-ui/**", "/v3/api-docs/**", "/error").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/books/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/books").hasAnyRole("ADMIN", "USER")
                         .requestMatchers(HttpMethod.GET, "/api/books/**").hasAnyRole("ADMIN", "USER")
