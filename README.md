@@ -36,7 +36,7 @@
   <tbody><tr><td width="99999">Spring Boot 4 REST API foundation</td><td>✅</td></tr></tbody>
   <tbody><tr><td>PostgreSQL Hibernate persistence</td><td>✅</td></tr></tbody>
   <tbody><tr><td>Redis caching for book lookups</td><td>✅</td></tr></tbody>
-  <tbody><tr><td>JWT authentication with bearer tokens</td><td>✅</td></tr></tbody>
+  <tbody><tr><td>JWT authentication with bearer token</td><td>✅</td></tr></tbody>
   <tbody><tr><td>Apache Kafka messaging integration</td><td>✅</td></tr></tbody>
   <tbody><tr><td>OpenAPI docs with Swagger UI</td><td>✅</td></tr></tbody>
   <tbody><tr><td>Docker Compose with health</td><td>✅</td></tr></tbody>

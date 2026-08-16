@@ -2,6 +2,7 @@ package com.bookyard.service.impl;
 
 import com.bookyard.entity.Author;
 import com.bookyard.entity.Book;
+import com.bookyard.messaging.BookEventProducer;
 import com.bookyard.repository.AuthorRepository;
 import com.bookyard.repository.BookRepository;
 import com.bookyard.service.BookService;
@@ -19,10 +20,12 @@ public class BookServiceImpl implements BookService {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final BookEventProducer bookEventProducer;
 
-    public BookServiceImpl(AuthorRepository authorRepository, BookRepository bookRepository) {
+    public BookServiceImpl(AuthorRepository authorRepository, BookRepository bookRepository, BookEventProducer bookEventProducer) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.bookEventProducer = bookEventProducer;
     }
 
     @Override
@@ -34,7 +37,9 @@ public class BookServiceImpl implements BookService {
         var book = new Book();
         book.setTitle(title);
         book.setAuthor(author);
-        return bookRepository.save(book);
+        var savedBook = bookRepository.save(book);
+        bookEventProducer.sendBookCreatedEvent(savedBook.getTitle());
+        return savedBook;
     }
 
     @Override

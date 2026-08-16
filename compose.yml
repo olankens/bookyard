@@ -11,6 +11,20 @@ services:
       redis:
         condition: service_healthy
 
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: bookyard-kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_TOLES: broker, controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.9092,CONTROLLER://0.0.0.9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://0.0.0.9092
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
+
   postgres:
     image: postgres:18
     container_name: bookyard-postgres

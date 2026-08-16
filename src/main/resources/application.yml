@@ -17,6 +17,12 @@ spring:
       host: redis
       port: 6379
 
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: bookyard-group
+      auto-offset-reset: earliest
+
 jwt:
   secret: VIESj/LtxJ05wroQ1H+Z6iqc3FRVsTpxeR8SKu1rc4Y=
   expiration: 86400000
