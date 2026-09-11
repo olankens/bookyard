@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: bookyard
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookyard
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6380
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: bookyard-group
+      auto-offset-reset: earliest
+
+jwt:
+  secret: VIESj/LtxJ05wroQ1H+Z6iqc3FRVsTpxeR8SKu1rc4Y=
+  expiration: 86400000
